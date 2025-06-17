@@ -1,24 +1,55 @@
 import { getCartProductFromLS } from "./getCartProductFromLS";
 import { updateCartValue } from "./updateCartValue";
 
+getCartProductFromLS();
+
 export const addToCart = (event, id, stock) =>{
 
     let arrLocalStorageProduct = getCartProductFromLS();
 
     const currentProductElem = document.querySelector(`#card${id}`);
-    // console.log(currentProductElement, id, stock);
+     // console.log(currentProductElement, id, stock);
 
     let quantity = currentProductElem.querySelector(".productQuantity").innerText;
     let price = currentProductElem.querySelector(".productPrice").innerText;
     // console.log(quantity, price);
 
     price = price.replace("₹", "");
+
+
+    let existingProd = arrLocalStorageProduct.find((curProd) => curProd.id === id );
+    console.log(existingProd);
+
+    if(existingProd){
+        quantity = Number(existingProd.quantity) + Number(quantity);
+        price = Number(price * quantity);
+        let updatedCart = {id, quantity, price};
+
+        // arrLocalStorageProduct.map((curProd)=>{
+        //     if(curProd.id === id){
+        //         updatedCart;
+        //     }
+        //     else{
+        //         curProd;
+        //     }
+        // })
+
+        updatedCart = arrLocalStorageProduct.map((curProd)=>{
+            return curProd.id === id ? updatedCart : curProd;
+        });
+        console.log(updatedCart);
+        localStorage.setItem("cartProductLS", JSON.stringify(updatedCart));
+    }
+    else{
+
     price = Number(price * quantity);
     quantity = Number(quantity);
 
     // let updatedCart = {id, quantity, price};
     arrLocalStorageProduct.push({id, quantity, price});
     localStorage.setItem("cartProductLS", JSON.stringify(arrLocalStorageProduct));
+    
+    }
 
     // update the cart button value
     updateCartValue(arrLocalStorageProduct);
