@@ -1,8 +1,12 @@
 import { getCartProductFromLS } from "./getCartProductFromLS";
 import { updateCartValue } from "./updateCartValue";
 
+// to get cart data from localStorage 
+// also to updata the cart value and to get data always ready for localStorage
 getCartProductFromLS();
 
+
+// to add data into localStorage
 export const addToCart = (event, id, stock) =>{
 
     let arrLocalStorageProduct = getCartProductFromLS();
@@ -18,7 +22,7 @@ export const addToCart = (event, id, stock) =>{
 
 
     let existingProd = arrLocalStorageProduct.find((curProd) => curProd.id === id );
-    console.log(existingProd);
+    // console.log(existingProd);
 
     if(existingProd){
         quantity = Number(existingProd.quantity) + Number(quantity);
@@ -48,7 +52,7 @@ export const addToCart = (event, id, stock) =>{
     // let updatedCart = {id, quantity, price};
     arrLocalStorageProduct.push({id, quantity, price});
     localStorage.setItem("cartProductLS", JSON.stringify(arrLocalStorageProduct));
-    
+
     }
 
     // update the cart button value
