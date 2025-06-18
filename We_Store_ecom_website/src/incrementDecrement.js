@@ -1,11 +1,12 @@
 import { getCartProductFromLS } from "./getCartProductFromLS";
+import { updateCartProductTotal } from "./updateCartProductTotal";
 
 export const incrementDecrement =(event, id, stock, price) => {
 
             // console.log('id',id);
 
     const currentCardElement = document.querySelector(`#card${id}`);
-    console.log(currentCardElement.id);
+    // console.log(currentCardElement.id);
     const productQuantity = currentCardElement.querySelector(".productQuantity");
     const productPrice = currentCardElement.querySelector(".productPrice");
 
@@ -14,7 +15,7 @@ export const incrementDecrement =(event, id, stock, price) => {
 
     // getting the data from localStorage and checking if the id is present in it or not
     let localCartProducts = getCartProductFromLS();
-    console.log(Array.isArray(localCartProducts));
+    // console.log(Array.isArray(localCartProducts));
     // console.log(localCartProducts);
 
     let existingProd = localCartProducts.find((curProd) => curProd.id === id);
@@ -44,12 +45,12 @@ export const incrementDecrement =(event, id, stock, price) => {
         }
     }
 
-    // update the final local storage price
+    //* update the final local storage price
     localStoragePrice = price * quantity;
     localStoragePrice = Number(localStoragePrice.toFixed(2));
 
     let updatedCart = {id, quantity, price: localStoragePrice };
-    console.log(updatedCart);
+    // console.log(updatedCart);
 
     updatedCart = localCartProducts.map((curProd)=>{
         return curProd.id === id ? updatedCart : curProd;
@@ -58,5 +59,9 @@ export const incrementDecrement =(event, id, stock, price) => {
 
     productQuantity.innerText = quantity;
     productPrice.innerText = localStoragePrice;
+
+
+    // calling this function to update the final summary everytime inc or dec is done
+    updateCartProductTotal();
 
 };

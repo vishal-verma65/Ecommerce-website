@@ -3,16 +3,17 @@ import { fetchQuantityFromLS } from "./fetchQuantityFromLS";
 import { getCartProductFromLS } from "./getCartProductFromLS";
 import { incrementDecrement } from "./incrementDecrement";
 import { removeProdFromCart } from "./removeProdFromCart";
+import { updateCartProductTotal } from "./updateCartProductTotal";
 
 let cartProductLS = getCartProductFromLS();
-console.log(cartProductLS);
+// console.log(cartProductLS);
 
 let filterProducts = products.filter((curProd) =>{
     // console.log(curProd.id);
     return cartProductLS.some((curElem)=> curElem.id === curProd.id);
 });
 
-console.log(filterProducts);
+// console.log(filterProducts);
 
 const productCartContainer = document.querySelector("#productCartContainer");
 const productCartTemplate = document.querySelector("#productCartTemplate");
@@ -49,6 +50,10 @@ const showCartProduct = ()=>{
 
 // showing cart products
 showCartProduct();
+
+
+//calculating total amount of cart products
+updateCartProductTotal();
 
 
 
