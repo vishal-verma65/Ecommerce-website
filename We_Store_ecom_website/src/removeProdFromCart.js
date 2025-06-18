@@ -1,8 +1,8 @@
 import { getCartProductFromLS } from "./getCartProductFromLS";
+import { showToast } from "./showToast";
 import { updateCartProductTotal } from "./updateCartProductTotal";
 import { updateCartValue } from "./updateCartValue";
 let productSubTotal = document.querySelector(".productSubTotal");
-let productFinalTotal = document.querySelector(".productFinalTotal");
    
 
 export const removeProdFromCart =(id) =>{
@@ -22,6 +22,9 @@ export const removeProdFromCart =(id) =>{
 
         //deleting the div
         removeDiv.remove();
+
+                //show toast when product is added and removed in cart
+        showToast("delete", id);
 
         //updating the total amount after removing the product from the cart
         updateCartProductTotal();
