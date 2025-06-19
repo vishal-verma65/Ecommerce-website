@@ -33,8 +33,9 @@ html {
 
 /* have a look into body once after we done with rest of the styling  */
 body {
-  margin: 0 auto;
-  padding: 0 32px;
+  /* margin: 0 auto;
+  padding: 0 32px; */
+  width: 100%;
   min-width: 320px;
   background-color: var(--backgroundColor);
 }
@@ -89,7 +90,7 @@ a {
 .container {
   max-width: 142rem;
   margin: 0 auto;
-  padding: 9.6rem 2.4rem;
+  padding: 9.6rem 4.4rem;
 }
 
 :is(
@@ -102,7 +103,7 @@ a {
     footer
   )
   .container:first-child {
-  padding: 6.4rem 0 2.4rem 0;
+  padding: 6.4rem 4.4rem 2.4rem 4.4rem;
 }
 
 .grid {
@@ -157,9 +158,7 @@ a {
   cursor: pointer;
 }
 
-.btn:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
+.btn:focus-visible, input:focus-visible, textarea:focus-visible {
   outline: 2px solid var(--para-color);
 }
 
@@ -224,6 +223,11 @@ textarea:focus-visible {
     display: flex;
     gap: 3.2rem;
   }
+
+  & .sign_in_up{
+    display: flex;
+    gap: 3rem;
+  }
 }
 
 .section-navbar {
@@ -233,6 +237,7 @@ textarea:focus-visible {
 }
 
 .section-navbar .container {
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -275,6 +280,7 @@ textarea:focus-visible {
     width: 100%;
   }
 }
+
 
 /***** Navbar End Section *****/
 
@@ -363,6 +369,9 @@ main .section-hero {
 /***** End Hero Section *****/
 
 /***** Extra Section *****/
+.section-extra-product .grid{
+  gap: 3rem;
+}
 .div-extra {
   padding: 3.2rem 2.4rem;
   background-color: var(--backgroundSecondary);
@@ -609,6 +618,9 @@ main .section-hero {
   width: 90%;
   height: auto;
 }
+/* .extra-padding{
+  padding: 0 4rem;
+} */
 
 /***** End why choose Section *****/
 
@@ -1009,9 +1021,14 @@ footer {
 
 /* https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
 
-@media (width <= 1380px) {
+@media (width <= 1600px) {
   html {
-    font-size: 56.25%;
+    font-size: 48%;
+  }
+}
+@media (width <= 1440px) {
+  html {
+    font-size: 41%;
   }
 
   .section-hero img {
@@ -1020,9 +1037,6 @@ footer {
 }
 
 @media (width <= 1220px) {
-  html {
-    font-size: 54%;
-  }
 
   :is(
       .section-about,
@@ -1040,8 +1054,15 @@ footer {
     height: 46rem;
   }
 }
+@media (width <= 1180px){
+    .section-products #productContainer {
+    grid-template-columns: repeat(2, minmax(33%, 1fr));
+  }
+}
 
 @media (width <= 1100px) {
+
+
   .grid-four--cols {
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   }
@@ -1090,12 +1111,12 @@ footer {
 }
 
 @media (width <= 980px) {
-  body {
-    padding: 0 0.6rem;
-  }
+  /* body {
+    padding: 0;
+  } */
 
-  .section-products #productContainer {
-    grid-template-columns: repeat(2, minmax(33%, 1fr));
+  html {
+    font-size: 41%;
   }
 
   .section-hero .hero-heading {
@@ -1150,8 +1171,14 @@ footer {
     padding: 0;
   }
 }
+@media (width <= 810px){
+    .section-products #productContainer {
+    grid-template-columns: repeat(1, minmax(33%, 1fr));
+  }
+}
 
 @media (width <= 768px) {
+
   .grid-two--cols {
     grid-template-columns: 1fr;
   }
@@ -1166,10 +1193,6 @@ footer {
 
   .section-hero .hero-heading {
     font-size: 4.2rem;
-  }
-
-  .section-products #productContainer {
-    grid-template-columns: repeat(1, minmax(33%, 1fr));
   }
 
   #productCartContainer .card {
@@ -1201,7 +1224,7 @@ footer {
 
   .section-navbar .container {
     flex-direction: column;
-    gap: 3.2rem;
+    gap: 1.5rem;
   }
 
   .section-why--choose {
@@ -1215,11 +1238,23 @@ footer {
 
     & .text-align--right .why-choose--div {
       align-items: flex-start;
-    }
-
-    & .choose-left-div {
       text-align: left;
     }
+
+    & .choose-center--div{
+      order: 1;
+    }
+    & .choose-left--div {
+      text-align: left;
+      order: 2;
+    }
+    & .choose-right--div{
+      order: 3;
+    }
+  }
+
+  .why-choose--div {
+  margin: 0 2rem 3.2rem 2rem;
   }
 
   .section-contact--homepage .btn {
@@ -1230,5 +1265,80 @@ footer {
   :is(.section-contact--homepage) .container:first-child {
     padding: 6.4rem 0rem 2.4rem 0rem;
   }
+
+  .section-navbar .container{
+    & .navbar-brand a{
+      display: grid;
+      place-items: center;
+    }
+  }
+}
+
+@media (width <= 410px){
+
+  .section-navbar .navbar ul{
+    font-size: 90rem;
+    gap: 2rem;
+  }
+
+  .navbar .add-to-cart-button{
+    width: 6rem;
+  }
+
+  .section-hero{ 
+    & .hero-heading{
+    line-height: 1.1;
+    }
+  }
+
+  .section-hero img {
+    width: 75%;
+  }
+
+  .section-why--choose {
+    & img {
+      width: 60%;
+    }
+    
+    .container {
+      /* margin: 0 auto; */
+      padding: 2.6rem 1.4rem;
+
+      & #productContainer{
+        padding: 5rem;
+      }
+    }
+  }  
+
+.section-products #productContainer {
+    grid-template-columns: repeat(1, minmax(70%, 1fr));
+  }
+
+    /* #productContainer{
+      width: 100%;
+    } */
+    .section-products {
+      display: grid;
+      place-items: center;
+
+        & .cards{
+          width: 100%;
+        }
+      }
+    
+  }
+
+.navbar .add-to-cart-button{
+   & a{
+    padding: .2rem .4rem;
+   }
+
+  & i{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: .5rem;
+  }
+
 }
 /***** End  media queries Section *****/
