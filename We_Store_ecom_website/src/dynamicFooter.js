@@ -16,24 +16,25 @@ const footerHTML = `
         </div>
         <div class="content_2">
           <h4>SHOPPING</h4>
-          <a href="#">Computer Store</a>
-          <a href="#">Laptop Store</a>
-          <a href="#">Accessories</a>
-          <a href="#">Sales & Discount</a>
+          <a href="products.html">Computer Store</a>
+          <a href="products.html">Laptop Store</a>
+          <a href="products.html">Accessories</a>
+          <a href="products.html">Sales & Discount</a>
         </div>
         <div class="content_3">
           <h4>Experience</h4>
           <a href="./contact.html">Contact Us</a>
-          <a href="" target="_blank">Payment Method</a>
-          <a href="" target="_blank">Delivery</a>
-          <a href="" target="_blank">Return and Exchange</a>
+          <a href="./contact.html" target="_blank">Payment Method</a>
+          <a href="./contact.html" target="_blank">Delivery</a>
+          <a href="./contact.html" target="_blank">Return and Exchange</a>
         </div>
         <div class="content_4">
           <h4>NEWSLETTER</h4>
           <p>Be the first to know about new<br />arrivals, sales & promos!</p>
           <div class="f-mail">
-            <input type="email" placeholder="Your Email" />
-            <i class="bx bx-envelope"></i>
+            <form action="#">
+              <input type="email" placeholder="Your Email" autocomplete="off" />
+            </form>
           </div>
           <hr />
         </div>
