@@ -1272,9 +1272,18 @@ footer {
       place-items: center;
     }
   }
+
+  .custom-shape-divider-bottom-1749888711 svg {
+    height: 6rem;
+  }
+  
 }
 
 @media (width <= 410px){
+
+  main{
+    height: 50vh;
+  }
 
   .section-navbar .navbar ul{
     font-size: 90rem;
@@ -1325,6 +1334,20 @@ footer {
           width: 100%;
         }
       }
+
+    .custom-shape-divider-bottom-1749888711 svg {
+      height: 4rem;
+    }
+
+    .section-hero{ 
+      & .grid{
+        gap: 5rem;
+      }
+      & .container{
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+    }
     
   }
 
